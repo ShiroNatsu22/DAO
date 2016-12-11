@@ -7,11 +7,11 @@ import java.sql.*;
 public class Conexio {
     // JDBC driver name and database URL
     static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://172.16.4.227/mysql";
+    static final String DB_URL = "jdbc:mysql://192.168.1.44/mysql";
 
     //  Database credentials
-    static final String USER = "root";
-    static final String PASS = "test";
+    static final String USER = "Joshua";
+    static final String PASS = "hola";
 
     public static void main(String[] args) {
         Connection conn = null;

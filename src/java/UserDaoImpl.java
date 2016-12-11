@@ -10,19 +10,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoImpl implements UserDAO {
-    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
-    static final String DB_URL = "jdbc:mysql://172.16.4.227/mysql";
-    //list is working as a database
-    List<User> users;
-    static final String USER = "root";
-    static final String PASS = "test";
 
+
+    static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";
+    static final String DB_URL = "jdbc:mysql://192.168.1.44/mysql";
+
+    List<User> users;
+    //  Database credentials
+    static final String USER = "Joshua";
+    static final String PASS = "hola";
     public UserDaoImpl() {
 
-
-
     }
-
 
     public List<User> getAllUser() {
         Connection conn = null;
@@ -31,7 +30,7 @@ public class UserDaoImpl implements UserDAO {
 
             //STEP 2: Register JDBC driver
             Class.forName(JDBC_DRIVER);
-
+            ArrayList<User> users = new ArrayList<User>();
             //STEP 3: Open a connection
             System.out.println("Connecting to database...");
             conn = DriverManager.getConnection(DB_URL, USER, PASS);
@@ -54,8 +53,7 @@ public class UserDaoImpl implements UserDAO {
 
                 //Display values
 
-                System.out.print(", Host: " + host);
-                System.out.println(", User: " + user);
+
             }
             //STEP 6: Clean-up environment
             rs.close();
@@ -85,8 +83,18 @@ public class UserDaoImpl implements UserDAO {
         return users;
     }
 
-    public User getUser(String host, String user) {
-        return null;
+    public User getUser(String user) {
+        return users.get(Integer.parseInt(user));
+    }
+
+    public User getHost(String host) {
+        return users.get(Integer.parseInt(host));
+    }
+
+
+
+    public List<User> getAllStudents() {
+        return users;
     }
 }
 
